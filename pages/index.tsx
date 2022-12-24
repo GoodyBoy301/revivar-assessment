@@ -59,18 +59,43 @@ const Home: NextPage<Props> = ({ images }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const count: number = 4;
   const images: image[] = [];
+  //refactor
+  //Ensure images are always different
+  const alphabets: string[] = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "x",
+    "y",
+    "z",
+  ];
   for (var i = 0; i < count; i++) {
-    //refactor
-    //Ensure images are always different
-    let { url } = await fetch("https://source.unsplash.com/random/300x300");
-    images.forEach((img) => {
-      if (img.url === url) {
-        fetch("https://source.unsplash.com/random/300x300").then((response) => {
-          url = response.url;
-          images[i] = { index: i, url };
-        });
-      }
-    });
+    const randomAlphabet: string = alphabets[Math.floor(Math.random() * 26)];
+    let { url } = await fetch(
+      `https://source.unsplash.com/random/300x300?${randomAlphabet}}`
+    );
     images.push({ index: i, url });
   }
 
