@@ -4,7 +4,12 @@ import type { FC } from "react";
 import Styles from "./index.module.css";
 import { selectFunction, downloadFunction } from "../../types/functions.types";
 
-const indexes: string[] = ["One", "Two", "Three", "Four"];
+const indexes: string[] = [
+  "Image One",
+  "Image Two",
+  "Image Three",
+  "Image Four",
+];
 
 interface Props {
   name: string;
