@@ -60,7 +60,17 @@ export const getStaticProps: GetStaticProps = async () => {
   const count: number = 4;
   const images: image[] = [];
   for (var i = 0; i < count; i++) {
-    const { url } = await fetch("https://source.unsplash.com/random/300x300");
+    //refactor
+    //Ensure images are always different
+    let { url } = await fetch("https://source.unsplash.com/random/300x300");
+    images.forEach((img) => {
+      if (img.url === url) {
+        fetch("https://source.unsplash.com/random/300x300").then((response) => {
+          url = response.url;
+          images[i] = { index: i, url };
+        });
+      }
+    });
     images.push({ index: i, url });
   }
 
