@@ -40,6 +40,7 @@ const Download: FC<Props> = ({ imageUrl, name, updateName, download }) => {
           <ImagePreview
             name={name}
             src={imageUrl}
+            index={0}
             type="download"
             onClick={() => {}}
             download={download}
