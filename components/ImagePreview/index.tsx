@@ -4,15 +4,25 @@ import type { FC } from "react";
 import Styles from "./index.module.css";
 import { selectFunction, downloadFunction } from "../../types/functions.types";
 
+const indexes: string[] = ["One", "Two", "Three", "Four"];
+
 interface Props {
   name: string;
   src: string;
+  index: number;
   type: "select" | "download";
   onClick: selectFunction;
   download: downloadFunction;
 }
 
-const ImagePreview: FC<Props> = ({ name, src, type, onClick, download }) => {
+const ImagePreview: FC<Props> = ({
+  name,
+  src,
+  index,
+  type,
+  onClick,
+  download,
+}) => {
   const imageContainer: string =
     type === "select" ? Styles.imageContainer : Styles.tyImageContainer;
   const action: string = type === "select" ? "Select" : "Download Card";
@@ -31,7 +41,7 @@ const ImagePreview: FC<Props> = ({ name, src, type, onClick, download }) => {
         <p className={Styles.username}>{name}</p>
       </figure>
       <div className={Styles.details}>
-        <p className={Styles.name}> Image One</p>
+        <p className={Styles.name}> {indexes[index]}</p>
         <p className={Styles.select} onClick={download}>
           {action}
         </p>

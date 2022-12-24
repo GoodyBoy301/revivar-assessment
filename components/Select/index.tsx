@@ -51,6 +51,7 @@ const Select: FC<Props> = ({ selectImage, images }) => {
               key={index}
               name=""
               src={url}
+              index={index}
               type="select"
               onClick={selectImage}
               download={() => randomizer(index)}
