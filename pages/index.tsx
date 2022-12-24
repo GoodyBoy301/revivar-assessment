@@ -103,7 +103,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       images: images,
     },
-    revalidate: 10,
+    //revalidate: 10,
   };
 };
 
